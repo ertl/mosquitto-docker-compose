@@ -3,8 +3,13 @@ version: "3"
 services:
   mosquitto:
     image: eclipse-mosquitto
+    container_name: mosquitto
+    hostname: mosquitto
+    network_mode: "host"
+    restart: unless-stopped
     volumes:
-      - ./:/mosquitto/:rw
+      - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - ./config/password.txt:/mosquitto/data/password.txt
     ports:
       - 1883:1883
       - 9001:9001
