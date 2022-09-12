@@ -6,6 +6,7 @@ This is a simple [Mosquitto](https://mosquitto.org) broker to to quickly initial
 
 By default we activated the log and data persistance (respectively in `log` and `data` folder).
 The authentication can be activated if needed.
+When authentication is activate also make sure you change the ip address in the mosquito.conf `listener 1883 192.168.0.16` to your ip address\range, which can accesss mosquitto.
 
 # How to use
 
