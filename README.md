@@ -4,9 +4,16 @@
 
 This is a simple [Mosquitto](https://mosquitto.org) broker to to quickly initialize projects requiring an MQTT broker. The config file is in the folder `config/mosquitto.conf`.
 
-By default we activated the log and data persistance (respectively in `log` and `data` folder).
-The authentication can be activated if needed.
+By default we activated the log and data persistance (respectively in `log` and `data` folder) and authentication.
+The default user is `mosquitto/password`.
 When authentication is activate also make sure you change the ip address in the mosquito.conf `listener 1883 192.168.0.16` to your ip address\range, which can accesss mosquitto.
+
+
+**You always have to restart if you want the modification to be taken in account:**
+
+```
+docker-compose restart
+```
 
 # How to use
 
@@ -28,17 +35,6 @@ mosquitto_sub -h localhost -t "sensor/temperature"
 
 ```
 mosquitto_pub -h localhost -t sensor/temperature -m 23
-```
-
-# Enabling authentication
-
-In the config file, just uncomment the `Authentication` part and then restart the container.
-The default user is `admin/password`.
-
-**You always have to restart if you want the modification to be taken in account:**
-
-```
-docker-compose restart
 ```
 
 ## Change user password / create a new user:
